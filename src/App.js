@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react'
-import Searchbar from './Searchbar'
 import Location from './Location'
 import Weather from './Weather'
 import dataContext from './dataContext'
@@ -7,7 +6,6 @@ import dataContext from './dataContext'
 function App() {
   const [weather, setWeather] = useState('')
   const [query, setQuery] = useState('')
-  const [location, setlocation] = useState('test')
 
   const api = {
     key: '07d60de775253ca943f4f4af9d24ec7c',
