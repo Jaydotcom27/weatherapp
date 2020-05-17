@@ -1,7 +1,6 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import Location from './Location'
 import Weather from './Weather'
-import dataContext from './dataContext'
 
 function App() {
   const [weather, setWeather] = useState('')
@@ -24,7 +23,6 @@ function App() {
   }
 
   return (
-    <dataContext.Provider value={{ weather, setWeather }}>
       <div
         className={
           typeof weather.main != 'undefined'
@@ -37,27 +35,24 @@ function App() {
         <main>
           <div className="search-box">
             <input
-              type="text"
               className="search-bar"
-              placeholder="Search..."
               onChange={(e) => setQuery(e.target.value)}
-              value={query}
               onKeyPress={search}
+              placeholder="Search..."
+              type="text"
+              value={query}
             />
           </div>
           <div>
-            {typeof weather.main != 'undefined' ? (
+            {typeof weather.main !== 'undefined' && (
               <div>
-                <Location></Location>
-                <Weather></Weather>
+                <Location weather={weather} />
+                <Weather weather={weather} />
               </div>
-            ) : (
-              ''
             )}
           </div>
         </main>
       </div>
-    </dataContext.Provider>
   )
 }
 
