@@ -1,9 +1,6 @@
-import React, { useState, useContext } from 'react'
-import dataContext from './dataContext'
+import React from 'react'
 
-const Weather = () => {
-  const { weather, setWeather } = useContext(dataContext)
-  const [location, setlocation] = useState('test')
+const Weather = ({ weather }) => {
   return (
     <div className="weather-box">
       <div className="temp">{Math.round(weather.main.temp)}°c </div>

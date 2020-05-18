@@ -2,40 +2,40 @@ import React, { useState, useContext } from 'react'
 import Weather from './Weather'
 import dataContext from './dataContext'
 
-const Location = () => {
-  const { weather, setWeather } = useContext(dataContext)
+const MONTHS = [
+  'January',
+  'February',
+  'March',
+  'April',
+  'May',
+  'June',
+  'July',
+  'August',
+  'September',
+  'October',
+  'November',
+  'December',
+]
+const DAYS = [
+  'Sunday',
+  'Monday',
+  'Tuesday',
+  'Wednesday',
+  'Thursday',
+  'Friday',
+  'Saturday',
+]
 
+const Location = ({ weather }) => {
   const dateBuilder = (d) => {
-    let months = [
-      'January',
-      'February',
-      'March',
-      'April',
-      'May',
-      'June',
-      'July',
-      'August',
-      'September',
-      'October',
-      'November',
-      'December',
-    ]
-    let days = [
-      'Sunday',
-      'Monday',
-      'Tuesday',
-      'Wednesday',
-      'Thursday',
-      'Friday',
-      'Saturday',
-    ]
-    let day = days[d.getDay()]
+    let day = DAYS[d.getDay()]
     let date = d.getDate()
-    let month = months[d.getMonth()]
+    let month = MONTHS[d.getMonth()]
     let year = d.getFullYear()
 
     return `${day} ${date} ${month} ${year}`
   }
+
   return (
     <div>
       <div className="location-box">
