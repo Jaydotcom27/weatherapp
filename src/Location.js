@@ -1,6 +1,4 @@
-import React, { useState, useContext } from 'react'
-import Weather from './Weather'
-import dataContext from './dataContext'
+import React from 'react'
 
 const MONTHS = [
   'January',
